@@ -4,7 +4,8 @@ const defaultOptions = {
   delimiters: [
     { left: '\\[', right: '\\]', display: true },
     { left: '\\(', right: '\\)', display: false }
-  ]
+  ],
+  output:'mathml'
 }
 
 function escapedBracketRule(options) {
@@ -37,7 +38,7 @@ function escapedBracketRule(options) {
         try {
           const renderedContent = katex.renderToString(content, {
             throwOnError: false,
-            output: 'mathml',
+            output: options.output,
             displayMode: display
           })
           const token = state.push('html_inline', '', 0)

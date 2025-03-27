@@ -23,7 +23,8 @@ interface MarkdownItKatexGptOptions {
   /**
    * delimiters display configuration
    */
-  delimiters: DelimiterItem[]
+  delimiters: DelimiterItem[],
+  output?: string
 }
 
 export default markdownItKatexGpt;

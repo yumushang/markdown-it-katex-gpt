@@ -8,7 +8,7 @@ md.use(markdownItKatexGpt, {
     { left: '\\[', right: '\\]', display: true },
     { left: '\\(', right: '\\)', display: false },
     { left: '$$', right: '$$', display: false },
-  ]
+  ],output:'htmlAndMathml'
 })
 
 let testString = `呀，让我来帮你解释一下万有引力公式喵！\n\n
@@ -58,4 +58,5 @@ x = \\begin{cases}
 `
 
 let result = md.render(testString)
-fs.writeFile('test-result.html', `<!DOCTYPE html><html lang="en"><body>${result}</body></html>`)
+fs.writeFile('test-result.html', `<!DOCTYPE html><html lang="en"><meta charset="utf-8"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
+<body>${result}</body></html>`)
